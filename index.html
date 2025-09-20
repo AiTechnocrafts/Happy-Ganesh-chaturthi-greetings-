@@ -14,7 +14,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@1&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     
-    <style>
+      <style>
         body {
             font-family: 'Poppins', sans-serif;
             /* Ganesh Chaturthi Theme Background: Saffron & Red */
@@ -58,13 +58,18 @@
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio ke liye */
+            /* YouTube Shorts ka aspect ratio 9:16 hota hai, toh isko adjust karte hain */
+            /* 16:9 (56.25%) ki jagah 9:16 (177.77%) */
+            padding-bottom: 177.77%; 
             height: 0;
             margin-bottom: 20px;
             border-radius: 15px; /* GIF ki tarah border radius */
             overflow: hidden; /* Border radius ke liye overflow chhupao */
             box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* GIF ki tarah shadow */
             border: 5px solid #fff; /* GIF ki tarah border */
+            max-width: 250px; /* Short videos ke liye max-width set kar sakte hain */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .video-container iframe {
@@ -160,17 +165,16 @@
    <div class="ad-container">
         <!-- Ad code goes here if you have any -->
    </div>
-
-    <div class="card">
-        <!-- YouTube Video Embed (GIF ki jagah) -->
+        <div class="card">
+        <!-- YouTube Video Embed -->
         <div class="video-container">
             <iframe 
-                src="https://www.youtube.com/embed/U1M7dpFpRsI?autoplay=1&mute=1&loop=1&playlist=U1M7dpFpRsI" 
+                src="https://www.youtube.com/embed/U1M7dpFpRsI" 
                 frameborder="0" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
                 allowfullscreen>
             </iframe>
-        </div>
+		</div>
         
         <p class="quote">
             "মা আসছে মা আসছে ওরে কে আছিস কোথা! ভুলে যা আজ মনের মাঝে আছে যত দুঃখ ব্যথা, ওই শোনা যায় মায়ের নামে আগমনীর কথা। সুদূর থেকে ভেসে আসে মায়ের সূত্র হেতা,
