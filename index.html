@@ -54,13 +54,26 @@
         .card::before { top: -10px; left: -10px; transform: rotate(-45deg); }
         .card::after { bottom: -10px; right: -10px; transform: rotate(135deg); }
         
-        .ganesh-gif { /* Renamed class for clarity */
-            max-width: 100%;
-            height: auto;
-            border-radius: 15px;
+        /* Styles for YouTube video container */
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio ke liye */
+            height: 0;
             margin-bottom: 20px;
-            border: 5px solid #fff;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            border-radius: 15px; /* GIF ki tarah border radius */
+            overflow: hidden; /* Border radius ke liye overflow chhupao */
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* GIF ki tarah shadow */
+            border: 5px solid #fff; /* GIF ki tarah border */
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0; /* YouTube iframe ka apna border hota hai, use hata do */
         }
 
         .quote {
@@ -140,8 +153,15 @@
    </div>
 
     <div class="card">
-        <!-- Ganesh Chaturthi GIF -->
-        <img src="https://i.ibb.co/93ThZVRP/825708ba16d7d66b1e9e9dd6ef847104.gif" alt="Happy Ganesh Chaturthi" class="ganesh-gif">
+        <!-- YouTube Video Embed (GIF ki jagah) -->
+        <div class="video-container">
+            <iframe 
+                src="https://www.youtube.com/embed/U1M7dpFpRsI?autoplay=1&mute=1&loop=1&playlist=U1M7dpFpRsI" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
         
         <p class="quote">
             ""Sankat harein, sukh samriddhi laayein,
@@ -179,8 +199,6 @@ Ganpati Bappa aapke jeevan ko khushiyon se sajaayein.""
             
             const pageLink = `${window.location.origin}${window.location.pathname}?from=${encodeURIComponent(name)}`;
             
-            // --- YAHAN PAR Galti THI ---
-            // Corrected WhatsApp message using a single template literal (backticks)
             const message = `🕉️ *Happy Ganesh Chaturthi!* 🐀
 
 Modak ki mithaas aur Ganpati ka tyohaar,
